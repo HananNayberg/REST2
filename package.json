@@ -1,0 +1,24 @@
+{
+  "name": "rest2",
+  "version": "1.0.0",
+  "description": "RESTful API based on https://www.edureka.co/blog/rest-api-with-node-js/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HananNayberg/REST2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HananNayberg/REST2/issues"
+  },
+  "homepage": "https://github.com/HananNayberg/REST2#readme",
+  "dependencies": {
+    "@hapi/joi": "^15.0.3",
+    "express": "^4.17.1",
+    "joi": "^14.3.1"
+  }
+}
