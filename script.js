@@ -45,7 +45,7 @@ app.post('/api/books' ,(req,res) => {
 });
 
 //UPDATE request handler
-app.put('/books/:id', (req,res) => {
+app.put('/api/books/:id', (req,res) => {
     const book = books.find(c => c.id === parseInt(req.params.id));
     if (!book) res.status(404).send('<h2 style="font-family: Malgun Gothic; color: darkred;">Not Found!! </h2>');
 
@@ -60,15 +60,25 @@ app.put('/books/:id', (req,res) => {
 });
 
 // DELETE Request Handler
-app.delete('/books/:id', (req,res)=> {
+app.delete('/api/books/:id', (req,res)=> {
     const book = books.find( c=> c.id === parseInt(req.params.id));
-if(!book) res.status(404).send('<h2 style="font-family: Malgun Gothic; color: darkred;"> Not Found!! </h2>');
+if (!book) res.status(404).send('<h2 style="font-family: Malgun Gothic; color: darkred;"> Not Found!! </h2>');
 
 const index = books.indexOf(book);
 books.splice(index,1);
 
-res.send(books);
+res.send(book);
 });
+
+function validateBook(book) {
+    const schema = {
+        title: joi.string().min(3).required()
+    };
+    return joi.validate(book, schema);
+}
+
+const port = process.env.PORT || 8080;
+app.listen(port, ()=> console.log(`listening on port ${port}...`));
 
 
 
